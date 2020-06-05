@@ -21,6 +21,10 @@ class ReleaseNotFoundError(Exception):
     pass
 
 
+class AppCompilationError(Exception):
+    pass
+
+
 def is_project_present(path):
     return os.path.exists(join(path, cfg.CFG_FILENAME))
 

@@ -41,6 +41,8 @@ def build():
     except checks.ProjectMissingError:
         raise click.UsageError(
             'the current folder is not a x16cli project, try command init first')
+    except checks.AppCompilationError:
+        click.echo('compilation error')
 
 
 @cli.command(help='X16 CLI application version.')
@@ -62,6 +64,8 @@ def run(debug):
     except checks.ProjectMissingError:
         raise click.UsageError(
             'the current folder is not a x16cli project, try command init first')
+    except checks.AppCompilationError:
+        click.echo('compilation error')
 
 
 if __name__ == "__main__":

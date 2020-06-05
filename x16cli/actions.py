@@ -161,9 +161,11 @@ def build(path):
         cmdline = cmdline.replace(' {modules}', '')
 
     p = subprocess.Popen(cmdline.split(' '), stdout=subprocess.DEVNULL)
-    p.wait()
+    ret = p.wait()
 
     subprocess.Popen(['mv', *collect_obj(path), prj_folder])
+    if ret != 0:
+        raise AppCompilationError
 
 
 def start_emu(path, debug):
