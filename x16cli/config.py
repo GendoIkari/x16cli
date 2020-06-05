@@ -37,3 +37,5 @@ CC65_CPU = '65C02'
 CC65_TARGET = 'cx16'
 
 CFG_FILENAME = 'x16.toml'
+
+DOCS_URL = 'https://github.com/commanderx16/x16-docs'

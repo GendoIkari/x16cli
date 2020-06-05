@@ -5,6 +5,7 @@ import toml
 import click
 import dotmap
 import shutil
+import webbrowser
 import subprocess
 import x16cli.config as cfg
 from x16cli.checks import *
@@ -174,3 +175,7 @@ def start_emu(path, debug):
     click.echo('Launching emulator with {}...'.format(c.compiler.program))
 
     emu = subprocess.Popen(args, stdout=subprocess.DEVNULL)
+
+
+def open_docs():
+    webbrowser.open(cfg.DOCS_URL, new=2)
