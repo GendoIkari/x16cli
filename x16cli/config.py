@@ -1,6 +1,6 @@
 import os
 
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 PRJ_FOLDER = '.x16prj'
 EMU_FOLDER = os.path.join(PRJ_FOLDER, 'x16emu')
