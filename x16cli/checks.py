@@ -9,6 +9,10 @@ class ProjectPresentError(Exception):
     pass
 
 
+class ProjectMissingError(Exception):
+    pass
+
+
 class RepositoryCloneError(Exception):
     pass
 

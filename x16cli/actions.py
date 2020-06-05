@@ -55,7 +55,10 @@ def create_config_file(path):
 
 
 def load_config_file(path):
-    return dotmap.DotMap(toml.load(open(join(path, cfg.CFG_FILENAME), 'r')))
+    try:
+        return dotmap.DotMap(toml.load(open(join(path, cfg.CFG_FILENAME), 'r')))
+    except FileNotFoundError:
+        raise ProjectMissingError
 
 
 def clone_repos(path):

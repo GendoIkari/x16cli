@@ -36,7 +36,11 @@ def init():
 
 @cli.command(help='Build the project in a prg file with executable header.')
 def build():
-    actions.build(CWD)
+    try:
+        actions.build(CWD)
+    except checks.ProjectMissingError:
+        raise click.UsageError(
+            'the current folder is not a x16cli project, try command init first')
 
 
 @cli.command(help='X16 CLI application version.')
@@ -52,8 +56,12 @@ def docs():
 @cli.command(help='Build and run the project in the emulator.')
 @click.option('-d', '--debug', is_flag=True, default=False, help='Run the emulator in debug mode.')
 def run(debug):
-    actions.build(CWD)
-    actions.start_emu(CWD, debug)
+    try:
+        actions.build(CWD)
+        actions.start_emu(CWD, debug)
+    except checks.ProjectMissingError:
+        raise click.UsageError(
+            'the current folder is not a x16cli project, try command init first')
 
 
 if __name__ == "__main__":
